@@ -1,0 +1,1900 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="A product of veddb.sh">
+    <title>Ved DB</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div class="App">
+            <div class="min-h-screen bg-black text-white overflow-hidden">
+                <header
+                    class="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-orange-500/20">
+                    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span
+                                class="text-xl font-bold bg-gradient-to-r from-white via-orange-200 to-orange-400 bg-clip-text text-transparent">🔥VedDB</span>
+                        </div>
+
+                        <div class="flex items-center space-x-4"><a
+                                href="https://github.com/Mihir-Rabari/ved-db-server/" target="_self" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 border shadow-sm hover:text-accent-foreground h-8 rounded-md px-3 text-xs border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 transition-all duration-300"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-github w-4 h-4 mr-2" aria-hidden="true">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                    </path>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                </svg>GitHub</a><a
+                                href="https://github.com/Mihir-Rabari/ved-db-server/" target="_self" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-primary/90 h-8 rounded-md px-3 text-xs bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white border-0 shadow-lg shadow-orange-500/25 transition-all duration-300"><svg
+                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-star w-4 h-4 mr-2" aria-hidden="true">
+                                    <path
+                                        d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z">
+                                    </path>
+                                </svg>Star</a></div>
+                    </div>
+                </header>
+                <section class="relative min-h-screen flex items-center justify-center overflow-hidden"><canvas
+                        class="absolute inset-0 w-full h-full" width="1536" height="730" style="z-index: 1;" id="bg"></canvas>
+                    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black"
+                        style="z-index: 2;"></div>
+                    <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-red-500/10 rounded-full blur-xl animate-float"
+                        style="z-index: 2;"></div>
+                    <div class="absolute bottom-32 right-20 w-24 h-24 bg-gradient-to-br from-red-500/10 to-pink-500/10 rounded-full blur-xl animate-float"
+                        style="z-index: 2; animation-delay: 2s;"></div>
+                    <div class="relative z-10 text-center max-w-5xl mx-auto px-6 pt-20">
+                        <div class="flex flex-wrap justify-center gap-3 mb-8 animate-fade-in-up">
+                            <span
+                                class="inline-flex items-center px-4 py-2 bg-orange-500/10 border border-orange-500/30 rounded-full text-orange-400 text-sm font-medium backdrop-blur-sm"><span
+                                    class="text-lg mr-2">🎉</span>v0.0.1 is Here</span>
+                        </div>
+                        <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 animate-fade-in-up delay-200"><span
+                                class="bg-gradient-to-r from-white via-orange-200 to-orange-400 bg-clip-text text-transparent leading-tight">🔥VedDB</span>
+                        </h1>
+                        <p
+                            class="text-2xl md:text-3xl text-gray-300 mb-6 max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-400">
+                            High-Performance In-Memory Database written in <span
+                                class="text-orange-400 font-semibold">Rust</span></p>
+                        <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-600">Zero-copy
+                            shared memory access, experimental QUIC/gRPC networking, and blazing-fast performance for
+                            modern applications.</p>
+                        <div class="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up delay-800"><a
+                                href="https://github.com/Mihir-Rabari/ved-db-server/releases/download/v0.0.1/veddb-server-windows.exe" target="_self" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-primary/90 h-10 rounded-md relative overflow-hidden bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-lg px-10 py-5 shadow-2xl shadow-orange-500/30 transform hover:scale-105 transition-all duration-300 group border-0">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
+                                </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-download w-6 h-6 mr-3 group-hover:animate-bounce"
+                                    aria-hidden="true">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" x2="12" y1="15" y2="3"></line>
+                                </svg>Download for Windows
+                            </a><a href="https://github.com/Mihir-Rabari/ved-db-server/" target="_self" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow-sm hover:text-accent-foreground h-10 rounded-md relative overflow-hidden border-2 border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 text-lg px-10 py-5 backdrop-blur-sm transform hover:scale-105 transition-all duration-300 group">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700">
+                                </div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-github w-6 h-6 mr-3 group-hover:rotate-12 transition-transform"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                    </path>
+                                    <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                </svg>Star on GitHub
+                            </a></div>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 animate-fade-in-up delay-1000">
+                            <div
+                                class="flex items-center justify-center space-x-3 p-4 bg-gray-900/30 rounded-lg border border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="lucide lucide-zap w-6 h-6 text-yellow-400"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                    </path>
+                                </svg><span class="text-gray-300 font-medium">Zero-Copy Memory</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-center space-x-3 p-4 bg-gray-900/30 rounded-lg border border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300">
+                                <span class="text-2xl">⚡</span><span class="text-gray-300 font-medium">QUIC/gRPC
+                                    Support</span>
+                            </div>
+                            <div
+                                class="flex items-center justify-center space-x-3 p-4 bg-gray-900/30 rounded-lg border border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-300">
+                                <span class="text-2xl">🚀</span><span class="text-gray-300 font-medium">SPSC Ring
+                                    Buffers</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="features" class="py-24 px-6 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5">
+                        <div
+                            class="absolute top-20 left-10 w-96 h-96 bg-orange-500 rounded-full blur-3xl animate-pulse">
+                        </div>
+                        <div class="absolute bottom-20 right-10 w-80 h-80 bg-red-500 rounded-full blur-3xl animate-pulse"
+                            style="animation-delay: 2s;"></div>
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full blur-3xl animate-pulse"
+                            style="animation-delay: 4s;"></div>
+                    </div>
+                    <div class="container mx-auto max-w-7xl relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-6"><span
+                                    class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Engineered
+                                    for Speed</span></h2>
+                            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">Every component of VedDB
+                                is optimized for maximum performance, safety, and scalability in modern applications</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="0" style="transition-delay: 0ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-yellow-500 to-orange-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-zap w-6 h-6 text-white" aria-hidden="true">
+                                                <path
+                                                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Performance</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Zero-Copy Performance</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Shared memory arena allocator eliminates data copying overhead, delivering
+                                        sub-millisecond latencies for local processes.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">&lt;
+                                                1ms latency</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Zero
+                                                malloc overhead</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Direct
+                                                memory access</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="1" style="transition-delay: 100ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-network w-6 h-6 text-white" aria-hidden="true">
+                                                <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                                                <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                                                <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                                                <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                                                <path d="M12 12V8"></path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Networking</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Modern Protocols</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Experimental QUIC and gRPC support brings next-generation networking with HTTP/3
+                                        compatibility and binary efficiency.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">QUIC/HTTP3</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">gRPC
+                                                binary</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Protocol
+                                                Buffers</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="2" style="transition-delay: 200ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-green-500 to-teal-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-cpu w-6 h-6 text-white" aria-hidden="true">
+                                                <path d="M12 20v2"></path>
+                                                <path d="M12 2v2"></path>
+                                                <path d="M17 20v2"></path>
+                                                <path d="M17 2v2"></path>
+                                                <path d="M2 12h2"></path>
+                                                <path d="M2 17h2"></path>
+                                                <path d="M2 7h2"></path>
+                                                <path d="M20 12h2"></path>
+                                                <path d="M20 17h2"></path>
+                                                <path d="M20 7h2"></path>
+                                                <path d="M7 20v2"></path>
+                                                <path d="M7 2v2"></path>
+                                                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                                                <rect x="8" y="8" width="8" height="8" rx="1"></rect>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Concurrency</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Advanced Concurrency</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        SPSC ring buffers with atomic worker pools provide lock-free operation handling
+                                        for maximum throughput.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-teal-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">SPSC
+                                                buffers</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-teal-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Atomic
+                                                operations</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-teal-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Thread-safe
+                                                sessions</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="3" style="transition-delay: 300ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-database w-6 h-6 text-white" aria-hidden="true">
+                                                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                                                <path d="M3 5V19A9 3 0 0 0 21 19V5"></path>
+                                                <path d="M3 12A9 3 0 0 0 21 12"></path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Storage</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        In-Memory Engine</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Custom key-value store with structured OpCode protocol supports GET, SET, DELETE
+                                        with atomic guarantees.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Key-value
+                                                store</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">CRUD
+                                                operations</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Atomic
+                                                guarantees</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="4" style="transition-delay: 400ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-red-500 to-pink-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-red-500 to-pink-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-shield w-6 h-6 text-white" aria-hidden="true">
+                                                <path
+                                                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Safety</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Memory Safety</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Built in Rust for guaranteed memory safety, preventing segfaults and buffer
+                                        overflows at compile time.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Zero
+                                                segfaults</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Compile-time
+                                                safety</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 to-pink-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Rust
+                                                guarantees</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="5" style="transition-delay: 500ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-indigo-500 to-blue-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-indigo-500 to-blue-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-code w-6 h-6 text-white" aria-hidden="true">
+                                                <polyline points="16 18 22 12 16 6"></polyline>
+                                                <polyline points="8 6 2 12 8 18"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Architecture</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Extensible Protocol</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Command/response architecture designed for future CAS operations, transactions,
+                                        and pub/sub messaging.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Future
+                                                CAS</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Pub/Sub
+                                                ready</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-indigo-500 to-blue-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Extensible
+                                                design</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="6" style="transition-delay: 600ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-teal-500 to-cyan-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-workflow w-6 h-6 text-white" aria-hidden="true">
+                                                <rect width="8" height="8" x="3" y="3" rx="2"></rect>
+                                                <path d="M7 11v4a2 2 0 0 0 2 2h4"></path>
+                                                <rect width="8" height="8" x="13" y="13" rx="2"></rect>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Management</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Session Management</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Unique session IDs with structured error handling provide reliable client
+                                        connection management.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Unique
+                                                sessions</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Error
+                                                handling</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Connection
+                                                tracking</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-xl border text-card-foreground shadow feature-card p-6 bg-gray-900/40 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 scale-100 hover:scale-105 hover:shadow-2xl hover:shadow-orange-500/10 group relative overflow-hidden"
+                                data-index="7" style="transition-delay: 700ms;">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-amber-500 to-orange-600 opacity-0 group-hover:opacity-5 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-4">
+                                        <div
+                                            class="inline-flex p-3 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-layers w-6 h-6 text-white" aria-hidden="true">
+                                                <path
+                                                    d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83z">
+                                                </path>
+                                                <path
+                                                    d="M2 12a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 12">
+                                                </path>
+                                                <path
+                                                    d="M2 17a1 1 0 0 0 .58.91l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9A1 1 0 0 0 22 17">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 font-semibold focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-xs border-gray-600 text-gray-400 group-hover:border-orange-500/50 group-hover:text-orange-400 transition-all duration-300">
+                                            Design</div>
+                                    </div>
+                                    <h3
+                                        class="text-xl font-bold mb-3 text-white group-hover:text-orange-400 transition-colors duration-300">
+                                        Modular Design</h3>
+                                    <p
+                                        class="text-gray-400 leading-relaxed mb-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                                        Core engine separated from networking layer allows for flexible deployment and
+                                        protocol evolution.</p>
+                                    <div class="space-y-2">
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Modular
+                                                core</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Flexible
+                                                deploy</span>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <div
+                                                class="w-2 h-2 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 group-hover:animate-pulse">
+                                            </div><span
+                                                class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors font-mono">Protocol
+                                                evolution</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-24 px-6 bg-gradient-to-b from-black to-gray-950 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5">
+                        <div
+                            class="absolute top-1/4 right-1/3 w-96 h-96 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl">
+                        </div>
+                        <div
+                            class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-gradient-to-r from-red-500 to-pink-500 rounded-full blur-3xl">
+                        </div>
+                    </div>
+                    <div class="container mx-auto max-w-7xl relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-6"><span
+                                    class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Technical
+                                    Architecture</span></h2>
+                            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">Deep dive into VedDB's
+                                high-performance architecture built for speed, safety, and scalability</p>
+                        </div>
+                        <div
+                            class="rounded-xl border text-card-foreground shadow p-8 mb-16 bg-gray-900/30 border-gray-800 backdrop-blur-sm">
+                            <h3 class="text-2xl font-bold text-white mb-8 text-center">VedDB Server Architecture</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Client Application</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">Your
+                                        application using VedDB</p>
+                                </div>
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-green-500 to-green-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        gRPC/QUIC Layer</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">Network
+                                        communication protocol</p>
+                                </div>
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Session Manager</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">Client
+                                        session handling</p>
+                                </div>
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Worker Pool</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
+                                        Concurrent request processing</p>
+                                </div>
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        SPSC Ring Buffers</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">
+                                        Zero-copy inter-process communication</p>
+                                </div>
+                                <div
+                                    class="rounded-xl border text-card-foreground shadow p-6 bg-gray-800/50 border-gray-700 hover:border-orange-500/50 transition-all duration-300 group">
+                                    <div
+                                        class="w-full h-3 bg-gradient-to-r from-red-500 to-pink-600 rounded-full mb-4 group-hover:scale-105 transition-transform">
+                                    </div>
+                                    <h4
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Memory Arena</h4>
+                                    <p class="text-gray-400 text-sm group-hover:text-gray-300 transition-colors">Shared
+                                        memory key-value store</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-8 bg-gradient-to-br from-gray-900/60 to-gray-800/40 border-gray-700 backdrop-blur-sm text-center hover:border-orange-500/50 transition-all duration-500 group">
+                                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">⚡</div>
+                                <div class="text-3xl font-bold text-orange-400 mb-2">Sub-ms</div>
+                                <div class="text-gray-400 group-hover:text-gray-300 transition-colors">Response Time
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-8 bg-gradient-to-br from-gray-900/60 to-gray-800/40 border-gray-700 backdrop-blur-sm text-center hover:border-orange-500/50 transition-all duration-500 group">
+                                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">🚀</div>
+                                <div class="text-3xl font-bold text-orange-400 mb-2">1M+</div>
+                                <div class="text-gray-400 group-hover:text-gray-300 transition-colors">Operations/Sec
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-8 bg-gradient-to-br from-gray-900/60 to-gray-800/40 border-gray-700 backdrop-blur-sm text-center hover:border-orange-500/50 transition-all duration-500 group">
+                                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform">💾</div>
+                                <div class="text-3xl font-bold text-orange-400 mb-2">Zero</div>
+                                <div class="text-gray-400 group-hover:text-gray-300 transition-colors">Copy Overhead
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="download"
+                    class="py-24 px-6 bg-gradient-to-b from-black to-gray-950 relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5">
+                        <div
+                            class="absolute top-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl animate-pulse">
+                        </div>
+                        <div class="absolute bottom-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-red-500 to-pink-500 rounded-full blur-3xl animate-pulse"
+                            style="animation-delay: 3s;"></div>
+                    </div>
+                    <div class="container mx-auto max-w-7xl relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-6"><span
+                                    class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Get
+                                    Started in Minutes</span></h2>
+                            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">Download VedDB Server and
+                                experience high-performance in-memory database with zero-copy operations</p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-6 mb-16">
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-6 border backdrop-blur-sm transition-all duration-500 group relative overflow-hidden cursor-pointer bg-gray-900/50 border-gray-800 hover:border-orange-500/50">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10 text-center"><svg xmlns="http://www.w3.org/2000/svg" 
+                                    width="24" height="24" viewBox="0 0 24 24" 
+                                    fill="white" 
+                                    class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-all duration-300"
+                                    aria-hidden="true">
+                                 <!-- 4 equal Windows 11 panes -->
+                                 <rect x="3" y="3" width="8" height="8" rx="1"></rect>
+                                 <rect x="13" y="3" width="8" height="8" rx="1"></rect>
+                                 <rect x="3" y="13" width="8" height="8" rx="1"></rect>
+                                 <rect x="13" y="13" width="8" height="8" rx="1"></rect>
+                               </svg>
+                               
+                                    <h3
+                                        class="text-xl font-bold mb-2 text-white group-hover:text-orange-400 transition-colors">
+                                        Windows</h3>
+                                    <div class="space-y-2 mb-4">
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 bg-green-500/20 text-green-400 border-green-500/50">
+                                            Available</div>
+                                        <div class="text-sm text-gray-400">v0.0.1 • 12.5MB</div>
+                                    </div><a href="https://github.com/Mihir-Rabari/ved-db-server/releases/download/v0.0.1/veddb-server-windows.exe" target="_self" rel="noopener noreferrer"
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2 w-full bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 border-0 transform group-hover:scale-105 transition-all duration-300"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-download w-4 h-4 mr-2" aria-hidden="true">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" x2="12" y1="15" y2="3"></line>
+                                        </svg>Download</a>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-6 border backdrop-blur-sm transition-all duration-500 group relative overflow-hidden cursor-pointer bg-gray-900/30 border-gray-700">
+                                <div class="relative z-10 text-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" viewBox="0 0 24 24"
+                                    fill="white"
+                                    class="lucide lucide-linux w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-all duration-300"
+                                    aria-hidden="true">
+                                 <circle cx="12" cy="7" r="3"></circle>
+                                 <ellipse cx="12" cy="14" rx="5" ry="6"></ellipse>
+                                 <ellipse cx="6.8" cy="14" rx="2" ry="3.2"></ellipse>
+                                 <ellipse cx="17.2" cy="14" rx="2" ry="3.2"></ellipse>
+                                 <rect x="7.2" y="20" width="3.2" height="2" rx="1"></rect>
+                                 <rect x="13.6" y="20" width="3.2" height="2" rx="1"></rect>
+                               </svg>
+                               
+                                    <h3 class="text-xl font-bold mb-2 text-gray-500 transition-colors">Linux</h3>
+                                    <div class="space-y-2 mb-4">
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 bg-gray-500/20 text-gray-400 border-gray-500/50">
+                                            Coming Soon</div>
+                                        <div class="text-sm text-gray-400">v0.1.0 • TBD</div>
+                                    </div><a
+                                        href="#" aria-disabled="true"
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow hover:bg-primary/90 h-9 px-4 py-2 w-full bg-gray-700 text-gray-400 cursor-not-allowed"
+                                        ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-terminal w-4 h-4 mr-2" aria-hidden="true">
+                                            <polyline points="4 17 10 11 4 5"></polyline>
+                                            <line x1="12" x2="20" y1="19" y2="19"></line>
+                                        </svg>Build from Source</a>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl text-card-foreground shadow p-6 border backdrop-blur-sm transition-all duration-500 group relative overflow-hidden cursor-pointer bg-gray-900/30 border-gray-700">
+                                <div class="relative z-10 text-center"><svg xmlns="http://www.w3.org/2000/svg" 
+                                    width="24" height="24" viewBox="0 0 24 24" 
+                                    fill="white"
+                                    class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-all duration-300"
+                                    aria-hidden="true">
+                                 <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.09 16.67C20.06 16.74 19.67 18.11 18.71 19.5ZM13 3.5C13.73 2.67 14.94 2.04 15.94 2C16.07 3.17 15.6 4.35 14.9 5.19C14.21 6.04 13.07 6.7 11.95 6.61C11.8 5.46 12.36 4.26 13 3.5Z"/>
+                               </svg>
+                               
+                                    <h3 class="text-xl font-bold mb-2 text-gray-500 transition-colors">macOS</h3>
+                                    <div class="space-y-2 mb-4">
+                                        <div
+                                            class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 bg-gray-500/20 text-gray-400 border-gray-500/50">
+                                            Coming Soon</div>
+                                        <div class="text-sm text-gray-400">v0.1.0 • TBD</div>
+                                    </div><button
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 shadow hover:bg-primary/90 h-9 px-4 py-2 w-full bg-gray-700 text-gray-400 cursor-not-allowed"
+                                        disabled=""><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-terminal w-4 h-4 mr-2" aria-hidden="true">
+                                            <polyline points="4 17 10 11 4 5"></polyline>
+                                            <line x1="12" x2="20" y1="19" y2="19"></line>
+                                        </svg>Build from Source</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-16">
+                            <h3 class="text-2xl font-bold text-center text-white mb-8">Installation Steps</h3>
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="rounded-xl border text-card-foreground shadow step-card p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 hover:scale-105 group cursor-pointer"
+                                    data-index="0" style="transition-delay: 0ms;">
+                                    <div class="text-center">
+                                        <div
+                                            class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-download w-6 h-6 text-white" aria-hidden="true">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" x2="12" y1="15" y2="3"></line>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-orange-400 font-medium mb-2">Step 1</div>
+                                        <h4
+                                            class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                            Download VedDB</h4>
+                                        <p
+                                            class="text-sm text-gray-400 mb-3 group-hover:text-gray-300 transition-colors leading-relaxed">
+                                            Get the latest Windows executable (v0.0.1)</p>
+                                        <div class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                                            12.5MB • Windows 10/11 • Self-contained</div>
+                                    </div>
+                                </div>
+                                <div class="rounded-xl border text-card-foreground shadow step-card p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 hover:scale-105 group cursor-pointer"
+                                    data-index="1" style="transition-delay: 150ms;">
+                                    <div class="text-center">
+                                        <div
+                                            class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-folder-open w-6 h-6 text-white" aria-hidden="true">
+                                                <path
+                                                    d="m6 14 1.5-2.9A2 2 0 0 1 9.24 10H20a2 2 0 0 1 1.94 2.5l-1.54 6a2 2 0 0 1-1.95 1.5H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H18a2 2 0 0 1 2 2v2">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-orange-400 font-medium mb-2">Step 2</div>
+                                        <h4
+                                            class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                            Extract &amp; Place</h4>
+                                        <p
+                                            class="text-sm text-gray-400 mb-3 group-hover:text-gray-300 transition-colors leading-relaxed">
+                                            Move to your preferred directory (e.g., C:\VedDB\)</p>
+                                        <div class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                                            Any folder works • Admin rights not required</div>
+                                    </div>
+                                </div>
+                                <div class="rounded-xl border text-card-foreground shadow step-card p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 hover:scale-105 group cursor-pointer"
+                                    data-index="2" style="transition-delay: 300ms;">
+                                    <div class="text-center">
+                                        <div
+                                            class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-terminal w-6 h-6 text-white" aria-hidden="true">
+                                                <polyline points="4 17 10 11 4 5"></polyline>
+                                                <line x1="12" x2="20" y1="19" y2="19"></line>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-orange-400 font-medium mb-2">Step 3</div>
+                                        <h4
+                                            class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                            Add to PATH</h4>
+                                        <p
+                                            class="text-sm text-gray-400 mb-3 group-hover:text-gray-300 transition-colors leading-relaxed">
+                                            Optional: Make veddb-server globally accessible</p>
+                                        <div class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                                            Run from anywhere • One-time setup</div>
+                                    </div>
+                                </div>
+                                <div class="rounded-xl border text-card-foreground shadow step-card p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-700 transform translate-y-0 opacity-100 hover:scale-105 group cursor-pointer"
+                                    data-index="3" style="transition-delay: 450ms;">
+                                    <div class="text-center">
+                                        <div
+                                            class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-circle-play w-6 h-6 text-white" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                                            </svg>
+                                        </div>
+                                        <div class="text-sm text-orange-400 font-medium mb-2">Step 4</div>
+                                        <h4
+                                            class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                            Run Server</h4>
+                                        <p
+                                            class="text-sm text-gray-400 mb-3 group-hover:text-gray-300 transition-colors leading-relaxed">
+                                            Start your VedDB instance with configuration</p>
+                                        <div class="text-xs text-gray-500 group-hover:text-gray-400 transition-colors">
+                                            Configurable • Port 50051 • Debug mode</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="max-w-5xl mx-auto mb-16">
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-8 bg-gray-900/80 border-gray-700 backdrop-blur-sm relative overflow-hidden group">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                </div>
+                                <div class="relative z-10">
+                                    <div class="flex items-center justify-between mb-6">
+                                        <div class="flex items-center space-x-3"><svg xmlns="http://www.w3.org/2000/svg"
+                                                width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                class="lucide lucide-terminal w-6 h-6 text-orange-400"
+                                                aria-hidden="true">
+                                                <polyline points="4 17 10 11 4 5"></polyline>
+                                                <line x1="12" x2="20" y1="19" y2="19"></line>
+                                            </svg><span class="text-orange-400 font-medium text-lg">PowerShell / Command
+                                                Prompt</span></div>
+                                    </div>
+                                    <div class="relative">
+                                        <div
+                                            class="bg-black/50 rounded-lg p-6 font-mono text-sm overflow-x-auto border border-gray-800 pr-12">
+                                            <div class="text-gray-400 mb-3 text-xs"># Create and start a new VedDB instance
+                                                with custom configuration</div>
+                                            <div class="text-green-400 leading-relaxed"><span class="text-orange-400">PS
+                                                    C:\VedDB&gt;</span> veddb-server-windows.exe<span class="text-blue-400">
+                                                    --create</span><span class="text-purple-400"> --name</span> <span
+                                                    class="text-yellow-400">veddb_main</span><span class="text-purple-400">
+                                                    --memory-mb</span> <span class="text-cyan-400">256</span><span
+                                                    class="text-purple-400"> --workers</span> <span
+                                                    class="text-cyan-400">4</span><span class="text-purple-400">
+                                                    --port</span> <span class="text-cyan-400">50051</span><span
+                                                    class="text-purple-400"> --debug</span></div>
+                                        </div>
+                                        <button id="btnCopyCommand" class="absolute top-3 right-3 p-1.5 rounded-md bg-gray-800/80 text-gray-400 hover:bg-gray-700 hover:text-white transition-colors duration-200" title="Copy to clipboard">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-copy">
+                                                <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+                                                <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                        <div class="mt-4 text-gray-500 text-xs space-y-1">
+                                            <div>→ Server will start on port 50051</div>
+                                            <div>→ Allocates 256MB of shared memory</div>
+                                            <div>→ Uses 4 worker threads</div>
+                                            <div>→ Debug logging enabled</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm">
+                                <h3 class="text-xl font-bold text-white mb-6 flex items-center"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        class="lucide lucide-file-text w-6 h-6 text-orange-400 mr-3" aria-hidden="true">
+                                        <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                        <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                        <path d="M10 9H8"></path>
+                                        <path d="M16 13H8"></path>
+                                        <path d="M16 17H8"></path>
+                                    </svg>System Requirements</h3>
+                                <div class="space-y-4">
+                                    <div
+                                        class="flex justify-between items-center p-3 bg-gray-800/30 rounded-lg border border-gray-700">
+                                        <span class="text-gray-400 font-medium">OS</span><span
+                                            class="text-white font-mono text-sm">Windows 10/11 (64-bit)</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center p-3 bg-gray-800/30 rounded-lg border border-gray-700">
+                                        <span class="text-gray-400 font-medium">RAM</span><span
+                                            class="text-white font-mono text-sm">As Per Database Size</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between items-center p-3 bg-gray-800/30 rounded-lg border border-gray-700">
+                                        <span class="text-gray-400 font-medium">Storage</span><span
+                                            class="text-white font-mono text-sm">10MB free for Downloading Binary</span>
+                                    </div>
+                                    <!-- <div
+                                        class="flex justify-between items-center p-3 bg-gray-800/30 rounded-lg border border-gray-700">
+                                        <span class="text-gray-400 font-medium">Network</span><span
+                                            class="text-white font-mono text-sm">TCP/UDP access (optional)</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm">
+                                <h3 class="text-xl font-bold text-white mb-6">Quick Start</h3>
+                                <div class="space-y-4 text-gray-300">
+                                    <div class="flex items-start space-x-3">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                                            1</div>
+                                        <div>
+                                            <div class="font-medium">Download and extract</div>
+                                            <div class="text-sm text-gray-400">Get the Windows binary from releases
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                                            2</div>
+                                        <div>
+                                            <div class="font-medium">Run the command</div>
+                                            <div class="text-sm text-gray-400">Execute with your preferred settings
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-3">
+                                        <div
+                                            class="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-white text-sm font-bold flex-shrink-0 mt-0.5">
+                                            3</div>
+                                        <div>
+                                            <div class="font-medium">Connect clients</div>
+                                            <div class="text-sm text-gray-400">Use gRPC/QUIC on port 50051</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="py-24 px-6 bg-gradient-to-b from-gray-950 to-black relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5">
+                        <div
+                            class="absolute top-20 left-20 w-80 h-80 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl animate-pulse">
+                        </div>
+                        <div class="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full blur-3xl animate-pulse"
+                            style="animation-delay: 2s;"></div>
+                    </div>
+                    <div class="container mx-auto max-w-6xl relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-6"><span
+                                    class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Development
+                                    Roadmap</span></h2>
+                            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">Explore VedDB's journey
+                                from experimental database to production-ready powerhouse</p>
+                        </div>
+                        <div class="relative">
+                            <div
+                                class="absolute left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-500 via-red-500 to-purple-500 rounded-full opacity-30">
+                            </div>
+                            <div class="space-y-12">
+                                <div data-index="0"
+                                    class="roadmap-item flex items-start space-x-8 transform transition-all duration-700 translate-x-0 opacity-100"
+                                    style="transition-delay: 0ms;">
+                                    <div class="relative flex-shrink-0">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-circle-check-big w-8 h-8 text-white"
+                                                aria-hidden="true">
+                                                <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+                                                <path d="m9 11 3 3L22 4"></path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="absolute top-16 left-8 w-1 h-12 bg-gradient-to-b from-current to-transparent opacity-20">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border text-card-foreground shadow flex-1 p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                            <div>
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-orange-400 border-orange-500/50 font-mono">
+                                                        v0.0.1</div>
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 border-green-500 bg-green-500/10 text-green-400">
+                                                        Released</div>
+                                                </div>
+                                                <h3
+                                                    class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                                    Foundation Release</h3>
+                                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                                    Core database engine with Windows support</p>
+                                            </div>
+                                            <div class="flex items-center space-x-2 text-gray-500 mt-4 md:mt-0"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                    class="lucide lucide-calendar w-4 h-4" aria-hidden="true">
+                                                    <path d="M8 2v4"></path>
+                                                    <path d="M16 2v4"></path>
+                                                    <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                                                    <path d="M3 10h18"></path>
+                                                </svg><span class="text-sm font-medium">23 Aug 2025</span></div>
+                                        </div>
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">In-memory
+                                                    key-value store</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">SPSC
+                                                    ring buffers</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Basic
+                                                    CRUD operations (GET, SET, DELETE)</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">gRPC/QUIC
+                                                    experimental layer</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Windows
+                                                    binary distribution</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-green-500 to-emerald-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">CLI
+                                                    interface with configuration</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-index="1"
+                                    class="roadmap-item flex items-start space-x-8 transform transition-all duration-700 translate-x-0 opacity-100"
+                                    style="transition-delay: 200ms;">
+                                    <div class="relative flex-shrink-0">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-circle w-8 h-8 text-white" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="absolute top-16 left-8 w-1 h-12 bg-gradient-to-b from-current to-transparent opacity-20">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border text-card-foreground shadow flex-1 p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                            <div>
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-orange-400 border-orange-500/50 font-mono">
+                                                        v0.1.0</div>
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 border-orange-500 bg-orange-500/10 text-orange-400">
+                                                        In Development</div>
+                                                </div>
+                                                <h3
+                                                    class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                                    Enhanced Operations</h3>
+                                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                                    Advanced database operations and improved performance</p>
+                                            </div>
+                                        </div>
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">CAS
+                                                    (Compare-And-Swap) operations</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Transaction
+                                                    support</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Performance
+                                                    optimizations</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Memory
+                                                    usage improvements</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Enhanced
+                                                    error handling</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Basic
+                                                    clustering preparation</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-index="2"
+                                    class="roadmap-item flex items-start space-x-8 transform transition-all duration-700 translate-x-0 opacity-100"
+                                    style="transition-delay: 400ms;">
+                                    <div class="relative flex-shrink-0">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-clock w-8 h-8 text-white" aria-hidden="true">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="absolute top-16 left-8 w-1 h-12 bg-gradient-to-b from-current to-transparent opacity-20">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border text-card-foreground shadow flex-1 p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                            <div>
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-orange-400 border-orange-500/50 font-mono">
+                                                        v0.2.0</div>
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 border-blue-500 bg-blue-500/10 text-blue-400">
+                                                        Planned</div>
+                                                </div>
+                                                <h3
+                                                    class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                                    Cross-Platform &amp; Messaging</h3>
+                                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                                    Multi-platform support and pub/sub functionality</p>
+                                            </div>
+                                        </div>
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Linux
+                                                    and macOS support</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Pub/Sub
+                                                    messaging system</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Advanced
+                                                    security features</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Client
+                                                    connection pooling</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Improved
+                                                    networking layer</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-blue-500 to-purple-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Configuration
+                                                    management</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-index="3"
+                                    class="roadmap-item flex items-start space-x-8 transform transition-all duration-700 translate-x-0 opacity-100"
+                                    style="transition-delay: 600ms;">
+                                    <div class="relative flex-shrink-0">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-network w-8 h-8 text-white" aria-hidden="true">
+                                                <rect x="16" y="16" width="6" height="6" rx="1"></rect>
+                                                <rect x="2" y="16" width="6" height="6" rx="1"></rect>
+                                                <rect x="9" y="2" width="6" height="6" rx="1"></rect>
+                                                <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path>
+                                                <path d="M12 12V8"></path>
+                                            </svg>
+                                        </div>
+                                        <div
+                                            class="absolute top-16 left-8 w-1 h-12 bg-gradient-to-b from-current to-transparent opacity-20">
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border text-card-foreground shadow flex-1 p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                            <div>
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-orange-400 border-orange-500/50 font-mono">
+                                                        v0.3.0</div>
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 border-blue-500 bg-blue-500/10 text-blue-400">
+                                                        Planned</div>
+                                                </div>
+                                                <h3
+                                                    class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                                    Clustering &amp; Scalability</h3>
+                                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                                    Distributed database capabilities</p>
+                                            </div>
+                                        </div>
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Multi-node
+                                                    clustering</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Data
+                                                    replication</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Load
+                                                    balancing</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Fault
+                                                    tolerance</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Distributed
+                                                    consensus</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-purple-500 to-pink-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Horizontal
+                                                    scaling</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-index="4"
+                                    class="roadmap-item flex items-start space-x-8 transform transition-all duration-700 translate-x-0 opacity-100"
+                                    style="transition-delay: 800ms;">
+                                    <div class="relative flex-shrink-0">
+                                        <div
+                                            class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-amber-600 flex items-center justify-center shadow-lg shadow-orange-500/20">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-rocket w-8 h-8 text-white" aria-hidden="true">
+                                                <path
+                                                    d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z">
+                                                </path>
+                                                <path
+                                                    d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+                                                </path>
+                                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="rounded-xl border text-card-foreground shadow flex-1 p-8 bg-gray-900/50 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 group">
+                                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                                            <div>
+                                                <div class="flex items-center space-x-3 mb-2">
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-orange-400 border-orange-500/50 font-mono">
+                                                        v1.0.0</div>
+                                                    <div
+                                                        class="inline-flex items-center rounded-md border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 shadow hover:bg-primary/80 border-gray-500 bg-gray-500/10 text-gray-400">
+                                                        Future</div>
+                                                </div>
+                                                <h3
+                                                    class="text-2xl font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                                    Production Ready</h3>
+                                                <p class="text-gray-400 group-hover:text-gray-300 transition-colors">
+                                                    Enterprise-grade stability and features</p>
+                                            </div>
+                                        </div>
+                                        <div class="grid md:grid-cols-2 gap-3">
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Production-ready
+                                                    stability</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Complete
+                                                    documentation</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Enterprise
+                                                    security</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Monitoring
+                                                    and observability</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Client
+                                                    libraries ecosystem</span>
+                                            </div>
+                                            <div
+                                                class="flex items-center space-x-3 p-3 bg-gray-800/30 rounded-lg border border-gray-700 group-hover:border-gray-600 transition-colors">
+                                                <div
+                                                    class="w-2 h-2 rounded-full bg-gradient-to-r from-yellow-500 to-amber-600">
+                                                </div><span
+                                                    class="text-sm text-gray-300 group-hover:text-gray-200 transition-colors">Performance
+                                                    guarantees</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="contribute"
+                    class="py-24 px-6 bg-gradient-to-b from-gray-950 to-black relative overflow-hidden">
+                    <div class="absolute inset-0 opacity-5">
+                        <div
+                            class="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-orange-500 to-red-500 rounded-full blur-3xl animate-pulse">
+                        </div>
+                        <div
+                            class="absolute bottom-20 left-20 w-72 h-72 bg-gradient-to-r from-red-500 to-pink-500 rounded-full blur-3xl animate-pulse">
+                        </div>
+                    </div>
+                    <div class="container mx-auto max-w-6xl relative z-10">
+                        <div class="text-center mb-16">
+                            <h2 class="text-4xl md:text-6xl font-bold mb-6"><span
+                                    class="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">Join
+                                    the Community</span></h2>
+                            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">Help shape the future of
+                                VedDB. Every contribution, big or small, makes a difference.</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer">
+                                <div class="text-center">
+                                    <div
+                                        class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-git-pull-request w-6 h-6 text-white"
+                                            aria-hidden="true">
+                                            <circle cx="18" cy="18" r="3"></circle>
+                                            <circle cx="6" cy="6" r="3"></circle>
+                                            <path d="M13 6h3a2 2 0 0 1 2 2v7"></path>
+                                            <line x1="6" x2="6" y1="9" y2="21"></line>
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Submit Pull Request</h3>
+                                    <p class="text-sm text-gray-400 mb-4 group-hover:text-gray-300 transition-colors">
+                                        Contribute code, fix bugs, or add new features</p><a
+                                        class="text-xs text-orange-400 font-medium" href="https://github.com/Mihir-Rabari/ved-db-server/issues">View Open Issues →</a>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer">
+                                <div class="text-center">
+                                    <div
+                                        class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-red-500 to-pink-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-bug w-6 h-6 text-white" aria-hidden="true">
+                                            <path d="m8 2 1.88 1.88"></path>
+                                            <path d="M14.12 3.88 16 2"></path>
+                                            <path d="M9 7.13v-1a3.003 3.003 0 1 1 6 0v1"></path>
+                                            <path
+                                                d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6">
+                                            </path>
+                                            <path d="M12 20v-9"></path>
+                                            <path d="M6.53 9C4.6 8.8 3 7.1 3 5"></path>
+                                            <path d="M6 13H2"></path>
+                                            <path d="M3 21c0-2.1 1.7-3.9 3.8-4"></path>
+                                            <path d="M20.97 5c0 2.1-1.6 3.8-3.5 4"></path>
+                                            <path d="M22 13h-4"></path>
+                                            <path d="M17.2 17c2.1.1 3.8 1.9 3.8 4"></path>
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Report Bugs</h3>
+                                    <p class="text-sm text-gray-400 mb-4 group-hover:text-gray-300 transition-colors">
+                                        Help us identify and fix issues in VedDB</p><a
+                                        class="text-xs text-orange-400 font-medium" href="https://github.com/Mihir-Rabari/ved-db-server/issues">Report Issue →</a>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer">
+                                <div class="text-center">
+                                    <div
+                                        class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-yellow-500 to-orange-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-lightbulb w-6 h-6 text-white" aria-hidden="true">
+                                            <path
+                                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5">
+                                            </path>
+                                            <path d="M9 18h6"></path>
+                                            <path d="M10 22h4"></path>
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Share Ideas</h3>
+                                    <p class="text-sm text-gray-400 mb-4 group-hover:text-gray-300 transition-colors">
+                                        Suggest new features and improvements</p><a
+                                        class="text-xs text-orange-400 font-medium">Start Discussion →</a>
+                                </div>
+                            </div>
+                            <div
+                                class="rounded-xl border text-card-foreground shadow p-6 bg-gray-900/30 border-gray-800 backdrop-blur-sm hover:border-orange-500/50 transition-all duration-500 hover:scale-105 group cursor-pointer">
+                                <div class="text-center">
+                                    <div
+                                        class="inline-flex p-4 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 mb-4 group-hover:scale-110 transition-transform duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-file-text w-6 h-6 text-white" aria-hidden="true">
+                                            <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path>
+                                            <path d="M14 2v4a2 2 0 0 0 2 2h4"></path>
+                                            <path d="M10 9H8"></path>
+                                            <path d="M16 13H8"></path>
+                                            <path d="M16 17H8"></path>
+                                        </svg>
+                                    </div>
+                                    <h3
+                                        class="text-lg font-bold text-white mb-2 group-hover:text-orange-400 transition-colors">
+                                        Improve Docs</h3>
+                                    <p class="text-sm text-gray-400 mb-4 group-hover:text-gray-300 transition-colors">
+                                        Enhance documentation and code examples</p><span
+                                        class="text-xs font-medium text-gray-400">Comming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="rounded-xl border text-card-foreground shadow p-12 bg-gradient-to-br from-gray-900/50 to-gray-800/30 border-orange-500/30 backdrop-blur-sm">
+                            <div class="text-center max-w-3xl mx-auto">
+                                <div class="flex justify-center mb-8">
+                                    <div class="relative"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round"
+                                            class="lucide lucide-github w-20 h-20 text-orange-400 animate-pulse"
+                                            aria-hidden="true">
+                                            <path
+                                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
+                                            </path>
+                                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                        </svg>
+                                        <div
+                                            class="absolute -inset-2 bg-gradient-to-r from-orange-500 to-red-600 rounded-full opacity-20 animate-ping">
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-6">Ready to contribute?</h3>
+                                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Join our growing community of developers and help shape the future of VedDB.</p>
+                                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                                    <a href="https://github.com/Mihir-Rabari/ved-db-server/" target="_self" rel="noopener noreferrer"
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-primary/90 h-10 rounded-md bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white text-lg px-8 py-4 shadow-xl shadow-orange-500/25 transform hover:scale-105 transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-5 h-5 mr-3" aria-hidden="true">
+                                            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
+                                            <path d="M9 18c-4.51 2-5-2-7-2"></path>
+                                        </svg>
+                                        View on GitHub
+                                    </a>
+                                    <a href="https://github.com/Mihir-Rabari/ved-db-server/discussions" target="_self" rel="noopener noreferrer"
+                                        class="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 border shadow-sm hover:text-accent-foreground h-10 rounded-md border-orange-500/50 text-orange-400 hover:bg-orange-500/10 hover:border-orange-400 text-lg px-8 py-4 backdrop-blur-sm transform hover:scale-105 transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-5 h-5 mr-3" aria-hidden="true">
+                                            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
+                                        </svg>
+                                        Join Discussions
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <footer class="bg-gradient-to-t from-black to-gray-950 border-t border-gray-800 py-16">
+                    <div class="container mx-auto max-w-6xl px-6">
+                        <div class="grid md:grid-cols-4 gap-8 mb-12">
+                            <div class="md:col-span-1">
+                                <div class="flex items-center space-x-2 mb-4">
+                                    <div
+                                        class="w-8 h-8 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
+                                        <span class="text-black font-bold text-sm">V</span>
+                                    </div><span
+                                        class="text-xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">VedDB</span>
+                                </div>
+                                <p class="text-gray-400 mb-4 leading-relaxed">High-performance in-memory database server
+                                    written in Rust for modern applications.</p>
+
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-4">Product</h4>
+                                <ul class="space-y-2">
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/releases/download/v0.0.1/veddb-server-windows.exe" target="_self" rel=""
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Download</span></a>
+                                    </li>
+                                    <li><a href="#features" target="_self" rel=""
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Features</span></a>
+                                    </li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server#readme" target="_self"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Documentation</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/releases" target="_self"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Releases</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-4">Community</h4>
+                                <ul class="space-y-2">
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server" target="_self"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>GitHub</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/issues" target="_self"
+                                            rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Issues</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/discussions"
+                                            target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Discussions</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/blob/main/CONTRIBUTING.md"
+                                            target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Contributing</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-4">Resources</h4>
+                                <ul class="space-y-2">
+                                    <li><a href="https://rust-lang.org" target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>Rust
+                                                Lang</span><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://grpc.io" target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>gRPC</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://quicwg.org" target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>QUIC
+                                                Protocol</span><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                                height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                    <li><a href="https://github.com/Mihir-Rabari/ved-db-server/blob/main/LICENSE"
+                                            target="_self" rel="noopener noreferrer"
+                                            class="text-gray-400 hover:text-orange-400 transition-colors duration-300 flex items-center group"><span>License</span><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round"
+                                                class="lucide lucide-external-link w-3 h-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                                                aria-hidden="true">
+                                                <path d="M15 3h6v6"></path>
+                                                <path d="M10 14 21 3"></path>
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6">
+                                                </path>
+                                            </svg></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="border-t border-gray-800 pt-8">
+                            <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                                <div class="text-gray-400 text-sm flex items-center"><span>© 2025 VedDB Server. MIT
+                                        Licensed.</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="lucide lucide-heart w-4 h-4 text-red-500 mx-2 animate-pulse"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
+                                        </path>
+                                    </svg><span>Built with</span><span
+                                        class="text-orange-400 font-medium ml-1">Rust</span></div>
+                                <div class="flex items-center space-x-4 text-sm text-gray-400"><span>Open
+                                        Source</span><span
+                                        class="w-1 h-1 bg-gray-600 rounded-full"></span><span>Community
+                                        Driven</span><span class="w-1 h-1 bg-gray-600 rounded-full"></span><span>High
+                                        Performance</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
